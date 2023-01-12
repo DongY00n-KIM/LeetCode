@@ -1,0 +1,36 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public var val: Int
+ *     public var next: ListNode?
+ *     public init() { self.val = 0; self.next = nil; }
+ *     public init(_ val: Int) { self.val = val; self.next = nil; }
+ *     public init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
+ * }
+ */
+class Solution {
+    func isPalindrome(_ head: ListNode?) -> Bool {
+        var nodeArr : [Int] = []
+        var dummy : ListNode? = head
+        
+        while dummy != nil{
+            nodeArr.append(dummy!.val)
+            dummy = dummy?.next
+        }
+        
+        var r = nodeArr.count - 1
+        var l = 0
+        
+        while l < r{
+            print(nodeArr[l])
+            print(nodeArr[r])
+            
+            if nodeArr[l] != nodeArr[r]{
+                return false
+            }
+            l += 1
+            r -= 1
+        }
+        return true
+    }
+}
