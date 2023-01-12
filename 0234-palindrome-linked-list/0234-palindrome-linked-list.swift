@@ -17,20 +17,7 @@ class Solution {
             nodeArr.append(dummy!.val)
             dummy = dummy?.next
         }
+        return nodeArr == nodeArr.reversed()
         
-        var r = nodeArr.count - 1
-        var l = 0
-        
-        while l < r{
-            print(nodeArr[l])
-            print(nodeArr[r])
-            
-            if nodeArr[l] != nodeArr[r]{
-                return false
-            }
-            l += 1
-            r -= 1
-        }
-        return true
     }
 }
