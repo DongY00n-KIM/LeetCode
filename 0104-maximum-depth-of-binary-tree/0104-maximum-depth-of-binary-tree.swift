@@ -15,6 +15,10 @@
  */
 class Solution {
     func maxDepth(_ root: TreeNode?) -> Int {
-        return root == nil ? 0 : max(maxDepth(root?.left), maxDepth(root?.right)) + 1
+        guard let root = root else{
+            return 0
+        }
+        return 1 + max(maxDepth(root.left), maxDepth(root.right))
+        //return root == nil ? 0 : max(maxDepth(root?.left), maxDepth(root?.right)) + 1
     }
 }
