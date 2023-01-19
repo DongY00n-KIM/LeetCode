@@ -12,8 +12,14 @@ class Solution {
     func removeNthFromEnd(_ head: ListNode?, _ n: Int) -> ListNode? {
         var resNode : ListNode? = ListNode(0)
         resNode!.next = head
-        var postNode : ListNode? = resNode
-        var pastNode : ListNode? = resNode
+        var pastNode : ListNode? = helperFunc(resNode, n)
+        
+        pastNode!.next = pastNode!.next!.next
+        return resNode!.next
+    }
+    func helperFunc(_ head: ListNode?, _ n: Int)-> ListNode?{
+        var pastNode : ListNode? = head
+        var postNode : ListNode? = head
         
         for i in 0..<n{
             postNode = postNode!.next
@@ -23,7 +29,7 @@ class Solution {
             postNode = postNode!.next
             pastNode = pastNode!.next
         }
-        pastNode!.next = pastNode!.next!.next
-        return resNode!.next
+        return pastNode
     }
+    
 }
