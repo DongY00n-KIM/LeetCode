@@ -12,18 +12,19 @@
 
 class Solution {
     func hasCycle(_ head: ListNode?) -> Bool {
+        //slow and faster pointer.
         var slowPointer : ListNode? = head
-        var fastPointer : ListNode? = slowPointer?.next
+        var fasterPointer : ListNode? = slowPointer?.next
         
-        while fastPointer?.next?.next != nil{
+        while fasterPointer?.next?.next != nil{
             slowPointer = slowPointer?.next
-            fastPointer = fastPointer?.next?.next
+            fasterPointer = fasterPointer?.next?.next
             
-            if fastPointer === slowPointer{
+            if fasterPointer === slowPointer{
                 return true
             }
         }
-        
-        return false 
+            
+        return false
     }
 }
