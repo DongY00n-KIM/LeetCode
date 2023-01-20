@@ -10,14 +10,14 @@
  */
 class Solution {
     func isPalindrome(_ head: ListNode?) -> Bool {
-        var nodeArr : [Int] = []
-        var dummy : ListNode? = head
+        var nodeList : [Int] = []
+        var temp : ListNode? = head
         
-        while dummy != nil{
-            nodeArr.append(dummy!.val)
-            dummy = dummy?.next
+        while temp != nil{
+            nodeList.append(temp!.val)
+            temp = temp!.next
         }
-        return nodeArr == nodeArr.reversed()
         
+        return nodeList == nodeList.reversed()
     }
 }
