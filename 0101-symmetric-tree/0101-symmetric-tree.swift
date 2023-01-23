@@ -18,17 +18,18 @@ class Solution {
     func isSymmetric(_ root: TreeNode?) -> Bool {
         helperFunc(root?.left, root?.right)
     }
-
-    func helperFunc(_ leftNode:TreeNode?, _ rightNode:TreeNode?) -> Bool {
+    
+    func helperFunc(_ rightNode : TreeNode?, _ leftNode : TreeNode?) -> Bool{
         if leftNode == nil && rightNode == nil{
             return true
         }
         if leftNode == nil || rightNode == nil{
             return false
         }
-        if leftNode!.val != rightNode!.val{
+        if leftNode!.val != rightNode!.val {
             return false
         }
-        return helperFunc(leftNode!.left, rightNode!.right) && helperFunc(leftNode!.right, rightNode!.left)
-}
+        
+        return helperFunc(leftNode?.left, rightNode?.right) && helperFunc(leftNode?.right, rightNode?.left)
+    }
 }
