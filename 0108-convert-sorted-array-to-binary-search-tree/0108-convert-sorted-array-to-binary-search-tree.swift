@@ -15,20 +15,19 @@
  */
 class Solution {
     func sortedArrayToBST(_ nums: [Int]) -> TreeNode? {
-        var res : TreeNode? = helperFunc(0, nums.count - 1, nums)
+        var res : TreeNode? = helperFunc(nums, 0, nums.count - 1)
         return res
     }
-    
-    func helperFunc(_ l : Int, _ r : Int, _ nums : [Int]) -> TreeNode?{
-        if l > r{
+    func helperFunc(_ nums:[Int], _ leftPointer : Int, _ rightPointer : Int) -> TreeNode?{
+        if leftPointer > rightPointer {
             return nil
         }
-        var m : Int = (l + r) / 2
+        
+        var m : Int = (rightPointer + leftPointer) / 2
         var root : TreeNode? = TreeNode(nums[m])
         
-        root?.left = helperFunc(l, m - 1, nums)
-        root?.right = helperFunc(m + 1, r, nums)
-        
-        return root
+        root?.left = helperFunc(nums, leftPointer, m - 1)
+        root?.right = helperFunc(nums, m + 1, rightPointer)
+        return root 
     }
 }
