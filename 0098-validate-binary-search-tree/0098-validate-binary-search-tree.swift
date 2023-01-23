@@ -15,17 +15,18 @@
  */
 class Solution {
     func isValidBST(_ root: TreeNode?) -> Bool {
-        return validCheck(root, leftVal : Int.min, rightVal : Int.max)
+        return validator(root, leftVal : Int.min, rightVal : Int.max)
+        
     }
     
-    func validCheck(_ root : TreeNode?, leftVal : Int, rightVal : Int) -> Bool{
+    func validator(_ root : TreeNode?, leftVal : Int, rightVal : Int) -> Bool {
         if root == nil{
             return true
         }
+        
         if root!.val <= leftVal || root!.val >= rightVal{
             return false
         }
-        
-        return validCheck(root?.left, leftVal : leftVal, rightVal : root!.val) && validCheck(root?.right, leftVal : root!.val, rightVal : rightVal)
+        return validator(root?.left, leftVal : leftVal, rightVal : root!.val) && validator(root?.right, leftVal : root!.val, rightVal : rightVal)
     }
 }
