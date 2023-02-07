@@ -3,16 +3,14 @@ class Solution {
         if nums.count < 2{
             return nums[0]
         }
+        var prev : Int = 0
+        var curr : Int = 0
         
-        var maxMoney = Array(repeating: 0, count: nums.count)
-        
-        maxMoney[0] = nums[0]
-        maxMoney[1] = max(maxMoney[0], nums[1])
-        
-        for i in 2..<nums.count{
-           maxMoney[i] = max(maxMoney[i - 1], maxMoney[i - 2] + nums[i])
+        for num in nums{
+            let temp = max(prev + num, curr)
+            prev = curr
+            curr = temp
         }
-        
-        return maxMoney[nums.count - 1]
+        return curr
     }
 }
