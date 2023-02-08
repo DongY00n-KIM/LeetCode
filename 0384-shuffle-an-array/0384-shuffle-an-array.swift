@@ -1,25 +1,29 @@
 
 class Solution {
-    private var originArr = [Int]()
+    var arr = [Int]()
 
     init(_ nums: [Int]) {
-        self.originArr = nums
+        self.arr = nums
     }
     
     func reset() -> [Int] {
-        return originArr
+        return self.arr
     }
     
     func shuffle() -> [Int] {
         var shuffleArr = [Int]()
-        while shuffleArr.count < originArr.count {
-            if let randomNum = originArr.randomElement(){
-                if !shuffleArr.contains(randomNum){
-                    shuffleArr.append(randomNum)
+        var size : Int = 0
+        
+        while(size < arr.count){
+            if let randElement = arr.randomElement(){
+                if !shuffleArr.contains(randElement){
+                    shuffleArr.append(randElement)
+                    size += 1
                 }
             }
         }
-    return shuffleArr
+        
+        return shuffleArr
     }
 }
 
