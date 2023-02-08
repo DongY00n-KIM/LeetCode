@@ -1,35 +1,27 @@
-
 class Solution {
-    var arr = [Int]()
+    private var original: [Int]
+    private var shuffled: [Int]
+    private var generator = SystemRandomNumberGenerator()
 
     init(_ nums: [Int]) {
-        self.arr = nums
+        original = nums
+        shuffled = nums
     }
     
+    /** Resets the array to its original configuration and return it. */
     func reset() -> [Int] {
-        return self.arr
+        shuffled = original
+        return original
     }
     
+    /** Returns a random shuffling of the array. */
     func shuffle() -> [Int] {
-        var shuffleArr = [Int]()
-        var size : Int = 0
-        
-        while(size < arr.count){
-            if let randElement = arr.randomElement(){
-                if !shuffleArr.contains(randElement){
-                    shuffleArr.append(randElement)
-                    size += 1
-                }
+        for i in 0..<shuffled.count {
+            let randomIndex = Int.random(in: i..<shuffled.count, using: &generator)
+            if i != randomIndex {
+                shuffled.swapAt(i, randomIndex)
             }
         }
-        
-        return shuffleArr
+        return shuffled
     }
 }
-
-/**
- * Your Solution object will be instantiated and called as such:
- * let obj = Solution(nums)
- * let ret_1: [Int] = obj.reset()
- * let ret_2: [Int] = obj.shuffle()
- */
