@@ -20,10 +20,10 @@ class MinStack {
     }
     
     func top() -> Int {
-        arr.last?.val ?? -1
+        arr.last?.val ?? 0
     }
     
     func getMin() -> Int {
-        arr.last?.min ?? -1
+        arr.last?.min ?? 0
     }
 }
