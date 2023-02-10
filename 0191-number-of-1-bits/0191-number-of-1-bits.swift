@@ -1,14 +1,12 @@
 class Solution {
     func hammingWeight(_ n: Int) -> Int {
-        let binaryStr = String(n, radix: 2)
         var result : Int = 0
+        var n = n
         
-        for char in binaryStr{
-            if char == "1"{
-                result += 1
-            }
+        while n > 0{
+            result += n % 2
+            n = n >> 1
         }
-        
         return result
     }
 }
