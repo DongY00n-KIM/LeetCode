@@ -1,8 +1,5 @@
 class Solution {
     func generate(_ numRows: Int) -> [[Int]] {
-        if numRows == 1{
-            return [[1]]
-        }
          var res = [[Int]]()
         res.append([1])
     
