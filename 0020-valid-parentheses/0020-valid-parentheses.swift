@@ -1,6 +1,8 @@
 class Solution {
     func isValid(_ s: String) -> Bool {
-    guard !s.isEmpty else { return true }
+    if s.count % 2 != 0{
+        return false
+    } 
     var stack: [Character] = []
     
     for bracket in s {
