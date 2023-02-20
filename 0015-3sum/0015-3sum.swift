@@ -1,6 +1,9 @@
 class Solution {
     func threeSum(_ nums: [Int]) -> [[Int]] {
         //target = 0 
+        if nums.count < 3{
+            return []
+        }
         var res = Set<[Int]>()
         let nums = nums.sorted()
         
