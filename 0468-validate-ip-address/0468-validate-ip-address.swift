@@ -31,11 +31,12 @@ class Solution {
     
     func IPv6Valid(_ IP : String) -> Bool{
         let ips = IP.components(separatedBy:":")
+        let validChars : String = "0123456789abcdefABCDEF"
+        
         if ips.count != 8{
             return false
         }
         
-        let validChars : String = "0123456789abcdefABCDEF"
         for ip in ips{
             if ip.count == 0 || ip.count > 4{
                 return false
